@@ -1,7 +1,7 @@
 import Node from "./Node";
 import BfSearch from "./algorithms/BfSearch";
-const rows = 8;
-const cols = 10;
+const rows = 9;
+const cols = 11;
 
 function Grid() {
   function graph(rows, cols) {
@@ -52,7 +52,7 @@ function Grid() {
       visited.push(row);
     }
     //queue[]
-    queue.push({ i: 0, j: 0 }); // x = rows, y = cols
+    queue.push({ i: 4, j: 5 }); // x = rows, y = cols
     // traverse
     while (queue.length > 0) {
       const currentNode = queue.shift();
