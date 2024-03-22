@@ -1,7 +1,7 @@
 import Node from "./Node";
 import BfSearch from "./algorithms/BfSearch";
-const rows = 9;
-const cols = 11;
+const rows = 13;
+const cols = 17;
 
 function Grid() {
   function graph(rows, cols) {
@@ -52,7 +52,7 @@ function Grid() {
       visited.push(row);
     }
     //queue[]
-    queue.push({ i: 4, j: 5 }); // x = rows, y = cols
+    queue.push({ i: 6, j: 8 }); // x = rows, y = cols
     // traverse
     while (queue.length > 0) {
       const currentNode = queue.shift();
@@ -65,7 +65,7 @@ function Grid() {
         document.getElementById(`node-${i}-${j}`).style.animation =
           "buch 1s ease-out";
       }, iter);
-      iter += 50;
+      iter += 15;
 
       if (i > 0 && !visited[i - 1][j]) queue.push({ i: i - 1, j }); // checking nodes above
       if (i < rows - 1 && !visited[i + 1][j]) queue.push({ i: i + 1, j }); // checking nodes below

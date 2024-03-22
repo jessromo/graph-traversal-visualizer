@@ -19,7 +19,9 @@
 /*transform: scale 1.1*/
 
 @keyframes buch {
-  from{border-radius: 70px; background: indigo;}
+  from{background: indigo;
+    box-shadow: 0px 0px 6px black;
+  transform: scale(-1.4);}
   to{background: pink;}
 }
 
