@@ -14,12 +14,17 @@
   background-color: white;
   width: 40px;
   height: 40px;
-  border: 1px solid black;
+  border: 1.5px solid black;
 }
 /*transform: scale 1.1*/
 
 @keyframes buch {
-  from{border-radius: 1000px; background: pink;}
-  to{background: blue;}
+  from{border-radius: 70px; background: indigo;}
+  to{background: pink;}
 }
 
+.buttons {margin-top: 20px;}
+
+#linearbtn {
+  margin-right: 60px;
+}

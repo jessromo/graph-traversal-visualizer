@@ -1,14 +1,8 @@
 import Node from "./Node";
-import { useEffect } from "react";
+import BfSearch from "./algorithms/BfSearch";
 const rows = 8;
 const cols = 10;
 
-// for linear search
-let arr = [1, 2, 3, 4, 5, 6];
-let x = 1;
-let n = arr.length;
-
-// grid component
 function Grid() {
   function graph(rows, cols) {
     const grid = [];
@@ -26,8 +20,9 @@ function Grid() {
 
   const grid = graph(rows, cols);
 
-  useEffect(() => {
-    let iter = 0;
+  // linear search
+  const linearSearch = () => {
+    let iter = 50;
 
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
@@ -38,28 +33,51 @@ function Grid() {
         iter += 50;
       }
     }
-  });
+  };
 
-  // linear search
-  function linearSearch(arr, x, n) {
-    for (let i = 0; i < n; i++) {
-      if (arr[i] == x) {
-        return i;
+  // breadth first search
+
+  const bfSearch = () => {
+    const visited = [];
+    const queue = [];
+    let iter = 0;
+
+    //visited[]
+
+    for (let i = 0; i < rows; i++) {
+      const row = [];
+      for (let j = 0; j < cols; j++) {
+        row.push(false); // false = not yet visited
       }
-      return -1;
+      visited.push(row);
     }
-  }
+    //queue[]
+    queue.push({ i: 0, j: 0 }); // x = rows, y = cols
+    // traverse
+    while (queue.length > 0) {
+      const currentNode = queue.shift();
+      const { i, j } = currentNode;
 
-  function searchInArr() {
-    const result = linearSearch(arr, x, n);
-    if (result == -1) {
-      return console.log("element was not found");
+      if (visited[i][j]) continue;
+      visited[i][j] = true; /// node has been visited, no longer in queue
+
+      setTimeout(() => {
+        document.getElementById(`node-${i}-${j}`).style.animation =
+          "buch 1s ease-out";
+      }, iter);
+      iter += 50;
+
+      if (i > 0 && !visited[i - 1][j]) queue.push({ i: i - 1, j }); // checking nodes above
+      if (i < rows - 1 && !visited[i + 1][j]) queue.push({ i: i + 1, j }); // checking nodes below
+      if (j > 0 && !visited[i][j - 1]) queue.push({ i, j: j - 1 }); // checking nodes to the left
+      if (j < cols - 1 && !visited[i][j + 1]) queue.push({ i, j: j + 1 }); // checking nodes to the right
+    
+    
+    
     }
-    return console.log("element was found!");
-  }
 
-  searchInArr();
-  //
+  };
+
   return (
     <>
       <div className="graph">
@@ -70,26 +88,16 @@ function Grid() {
                 id={`node-${rowIndex}-${colIndex}`}
                 key={`node-${rowIndex}-${colIndex}`}
                 className="col"
-                onClick={() => {}}
               />
             ))}
           </div>
         ))}
       </div>
+      <div className="buttons"><button onClick={linearSearch} id="linearbtn">Linear</button>
+      <button onClick={bfSearch}>Breadth First</button></div>
+      
     </>
   );
 }
 
-export default Grid;
-
-/*
-unique id names for divs, not classname, ID name
-
-id= node-{row-col}
-
-doule 4 loop - within this - setTimeout in the nested loop of the two
-
-doc.getElementbyID`$nodexyz.style.animation = keyframe animation name 1s ease out linear (write in main.css)
-
-from border radius 100px indigo to green
-*/
+export default Grid; 
