@@ -14,9 +14,6 @@ let arr = [1, 2, 3, 4, 5];
 let x = 4;
 let n = arr.length;
 
-
-
-
 const linSearch = (arr, x, n) => {
   for (let i = 0; i < n; i++) {
     if (arr[i] == x) {
@@ -27,8 +24,9 @@ const linSearch = (arr, x, n) => {
 };
 
 const searchInArr = (arr, x, n) => {
-    const result = linSearch()
-    if(result == -1){
-        return console.log("Element not found :( ")
-    } return console.log("Element has been found!")
+  const result = linSearch();
+  if (result == -1) {
+    return console.log("Element not found :( ");
+  }
+  return console.log("Element has been found!");
 };

@@ -21,15 +21,15 @@ const BfSearch = () => {
     visited[i][j] = true;
 
     setTimeout(() => {
-        document.getElementById(`node-${i}-${j}`).style.animation =
-          "buch 1s ease-out";
-      }, iter);
-      iter += 50;
+      document.getElementById(`node-${i}-${j}`).style.animation =
+        "buch 1s ease-out";
+    }, iter);
+    iter += 50;
 
-      if( i > 0 && !visited[i - 1][j]) queue.push({ i: i - 1, j } )
-      if(i < rows - 1 && !visited[i + 1][j]) queue.push({ i: i + 1, j })
-      if(j > 0 && !visited[j-1][i]) queue.push({j: j - 1, i}) 
-      if(j < cols -1 && !visited[j + 1][i]) queue.push({j: j + 1, i})
+    if (i > 0 && !visited[i - 1][j]) queue.push({ i: i - 1, j });
+    if (i < rows - 1 && !visited[i + 1][j]) queue.push({ i: i + 1, j });
+    if (j > 0 && !visited[j - 1][i]) queue.push({ j: j - 1, i });
+    if (j < cols - 1 && !visited[j + 1][i]) queue.push({ j: j + 1, i });
   }
 };
 
