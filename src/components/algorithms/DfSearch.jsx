@@ -28,6 +28,4 @@ const DfSearch = () => {
     dfs(i + 1, j, iter);
   };
   dfs(0, 0);
-};
-
-
+}

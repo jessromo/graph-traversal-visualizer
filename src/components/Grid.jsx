@@ -149,4 +149,17 @@ function Grid() {
   );
 }
 
+
+class arrayPrint {
+constructor(){
+this.arr = []
+}
+
+print(){
+  console.log(arrayPrint)
+}
+
+
+}
+
 export default Grid;

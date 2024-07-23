@@ -1,13 +1,6 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-
 .row {
   display: flex;
+  flex-wrap: wrap; /* Ensures columns wrap to the next line if needed */
 }
 
 .col {
@@ -15,21 +8,122 @@
   width: 40px;
   height: 40px;
   border: 1.5px solid black;
+  transition: transform 0.3s; /* Smooth transition for any transform changes */
 }
-/*transform: scale 1.1*/
 
 @keyframes buch {
-  from{background: indigo;
+  from {
+    background: indigo;
     box-shadow: 0px 0px 6px black;
-  transform: scale(-1.4);}
-  to{background: pink;}
+    transform: scale(-1.4);
+  }
+  to {
+    background: pink;
+  }
 }
 
-.buttons {margin-top: 20px;}
-
-#linearbtn {
-  margin-right: 60px;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  font-size: 26px;
+  margin-top: 10px;
 }
-#bfbtn {
-  margin-right: 60px;
+.graph {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .col {
+    width: 40px;
+    height: 40px;
+  }
+  .buttons {
+    padding: 10px;
+    font-size: 22px;
+  }
+  .graph {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%; /* Makes the graph responsive */
+    max-width: 100%; /* Ensures no overflow */
+  }
+}
+
+@media (max-width: 768px) {
+  .col {
+    width: 34px;
+    height: 34px;
+  }
+  .buttons {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .graph {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%; /* Makes the graph responsive */
+    max-width: 100%; /* Ensures no overflow */
+  }
+}
+
+@media (max-width: 675px) {
+  .col {
+    width: 25px;
+    height: 25px;
+  }
+  .buttons {
+    padding: 10px;
+    font-size: 16px;
+  }
+  .graph {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%; /* Makes the graph responsive */
+    max-width: 100%; /* Ensures no overflow */
+  }
+}
+
+@media (max-width: 480px) {
+  .col {
+    width: 20px;
+    height: 20px;
+  }
+  .buttons {
+    padding: 10px;
+    font-size: 16px;
+  }
+  .graph {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%; /* Makes the graph responsive */
+    max-width: 100%; /* Ensures no overflow */
+  }
+}
+
+@media (max-width: 380px) {
+  .col {
+    width: 17px;
+    height: 17px;
+  }
+  .buttons {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .graph {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%; /* Makes the graph responsive */
+    max-width: 100%; /* Ensures no overflow */
+  }
 }
